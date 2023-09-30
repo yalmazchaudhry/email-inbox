@@ -1,0 +1,66 @@
+[
+  {
+    "sender": "John Doe",
+    "subject": "Meeting Invitation",
+    "content": "Hello, we have a meeting scheduled for tomorrow.",
+    "selected": false,
+    "markRead": false,
+    "type": "inbox"
+  },
+  {
+    "sender": "John Doe",
+    "subject": "Meeting Invitation",
+    "content": "Hello, we have a meeting scheduled for tomorrow.",
+    "selected": false,
+    "markRead": false,
+    "type": "inbox"
+  },
+  {
+    "sender": "John Doe",
+    "subject": "Meeting Invitation",
+    "content": "Hello, we have a meeting scheduled for tomorrow.",
+    "selected": false,
+    "markRead": false,
+    "type": "inbox"
+  },
+  {
+    "sender": "John Doe",
+    "subject": "Meeting Invitation",
+    "content": "Hello, we have a meeting scheduled for tomorrow.",
+    "selected": false,
+    "markRead": false,
+    "type": "inbox"
+  },
+  {
+    "sender": "John Doe",
+    "subject": "Meeting Invitation",
+    "content": "Hello, we have a meeting scheduled for tomorrow.",
+    "selected": false,
+    "markRead": false,
+    "type": "inbox"
+  },
+  {
+    "sender": "John Doe",
+    "subject": "Meeting Invitation",
+    "content": "Hello, we have a meeting scheduled for tomorrow.",
+    "selected": false,
+    "markRead": false,
+    "type": "inbox"
+  },
+  {
+    "sender": "John Doe",
+    "subject": "Meeting Invitation",
+    "content": "Hello, we have a meeting scheduled for tomorrow.",
+    "selected": false,
+    "markRead": false,
+    "type": "inbox"
+  },
+  {
+    "sender": "John Doe",
+    "subject": "Meeting Invitation",
+    "content": "Hello, we have a meeting scheduled for tomorrow.",
+    "selected": false,
+    "markRead": false,
+    "type": "inbox"
+  }
+]

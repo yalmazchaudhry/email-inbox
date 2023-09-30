@@ -1,64 +1,93 @@
-
 <script lang="ts" setup>
-import { ref, reactive } from 'vue';
+import { ref } from "vue";
+import { useEmailStore } from "~/store/email/email";
+import { Email } from "~/shared/Email";
 
-const activeItem = ref('inbox');
+const emailStore = useEmailStore();
 
-function setActive(item :string) {
-  console.log(item)
+const emails = computed(() => {
+  return emailStore.getEmails;
+});
+const emailsCounts = computed(() => {
+  const inbox = emails.value.filter(
+    (email: Email) => email.type === "inbox"
+  ).length;
+  const archive = emails.value.filter(
+    (email: Email) => email.type === "archive"
+  ).length;
+  return {
+    inbox: inbox,
+    archive: archive,
+  };
+});
+const activeItem = ref("inbox");
+
+const setActive = (item: string) => {
   activeItem.value = item;
-}
+};
 
-function isActive(item :string) {
-  const temp= activeItem.value === item;
-  console.log(temp)
-  return temp
-}
+const isActive = (item: string) => {
+  return activeItem.value === item;
+};
 </script>
 
 <template>
   <div class="container">
-    <img src="/icon-inbox.png" alt="Inbox Icon" class="logo">
-<ul>
-  <li :class="{ 'active': isActive('inbox') }" @click="setActive('inbox')">
-    <div class="menu-items" >
-    <div class="icon-with-text">
-      <img src="/icon-inbox.png" alt="Inbox Icon">
-      <span> Inbox</span>
-    </div>
-    <span>9</span>
-  </div>
-  </li>
-  <li :class="{ 'active': isActive('other') }" @click="setActive('other')">
-    <div class="menu-items">
-      <div class="icon-with-text">
-        <img src="/icon-inbox.png" alt="Inbox Icon">
-        <span> Inbox</span>
+    <img src="/icon-nuxt.png" alt="Inbox Icon" class="logo" />
+    <ul>
+      <NuxtLink :to="{ path: '/' }">
+        <li :class="{ active: isActive('inbox') }" @click="setActive('inbox')">
+          <div class="menu-items">
+            <div class="icon-with-text">
+              <img src="/icon-inbox.png" alt="Inbox Icon" />
+              <span> Inbox</span>
+            </div>
+            <span>{{ emailsCounts.inbox }}</span>
+          </div>
+        </li>
+      </NuxtLink>
+      <NuxtLink :to="{ path: '/archives' }">
+        <li :class="{ active: isActive('other') }" @click="setActive('other')">
+          <div class="menu-items">
+            <div class="icon-with-text">
+              <img src="/icon-archive.png" alt="Inbox Icon" />
+              <span> Archives</span>
+            </div>
+            <span>{{ emailsCounts.archive }}</span>
+          </div>
+        </li>
+      </NuxtLink>
+    </ul>
+    <button>
+      <div class="menu-items">
+        <div class="icon-with-text">
+          <img src="/icon-logout.png" alt="Inbox Icon" /><span> Logout</span>
+        </div>
       </div>
-      <span>9</span>
-    </div>
-  </li>
-</ul>
-      <button><div class="menu-items"> <div class="icon-with-text"><img src="/icon-logout.png" alt="Inbox Icon"><span> Logout</span></div></div></button>
-</div>
+    </button>
+  </div>
 </template>
 
 <style lang="scss" scoped>
-.container{
-    width:100%;
+.container {
+  width: 100%;
   height: 100vh;
   position: relative;
   padding-top: 2%;
 }
-.logo{
+.logo {
+  width: 50px;
+  height: 50px;
   margin-left: 5%;
 }
-.menu-items, .icon-with-text{
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
+.menu-items,
+.icon-with-text {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  cursor: pointer;
 }
-li{
+li {
   margin-left: 10%;
   margin-bottom: 4%;
   list-style: none;
@@ -70,7 +99,7 @@ li{
 li.active {
   background-color: rgba(168, 199, 250, 0.5);
 }
-button{
+button {
   position: absolute;
   bottom: 2%;
   margin-left: 10%;
@@ -78,18 +107,16 @@ button{
   padding: 4% 10%;
   border: none;
   border-radius: 30px;
+  background-color: white;
 }
-button{
-  background-color:white;
 
-}
-button:hover{
+button:hover {
   background-color: #eee;
 }
 li:not(.active):hover {
   background-color: #eee;
 }
-ul{
+ul {
   margin: 0;
   margin-top: 5%;
   padding: 0;
@@ -101,6 +128,8 @@ ul{
   height: 24px;
   margin-right: 5px;
 }
-
-
+a {
+  text-decoration: none;
+  color: unset !important;
+}
 </style>

@@ -17,6 +17,8 @@
     "vue-router": "^4.2.5"
   },
   "dependencies": {
+    "@pinia/nuxt": "^0.4.11",
+    "pinia": "^2.1.6",
     "saas": "^1.0.0"
   }
 }
