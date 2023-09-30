@@ -58,32 +58,36 @@ onUnmounted(() => {
 });
 </script>
 <template>
-  <div class="side-drawer" :class="{ open: isOpen }" ref="dropdownElement">
-    <div class="drawer-content">
-      <div class="actions">
-        <div class="action-items">
-          <img
-            class="close-btn"
-            src="/icon-cross.png"
-            alt="Inbox Icon"
-            @click="closeSideDrawer(selectedEmailIndex)"
-          />
-          <span>Close (Esc)</span>
-        </div>
-        <div class="action-items-right">
+  <div>
+    <div class="overlay" :class="{ active: isOpen }"></div>
+
+    <div class="side-drawer" :class="{ open: isOpen }" ref="dropdownElement">
+      <div class="drawer-content">
+        <div class="actions">
           <div class="action-items">
-            <img src="/icon-inbox.png" alt="Inbox Icon" />
-            <span> Mark as read (r)</span>
+            <img
+              class="close-btn"
+              src="/icon-cross.png"
+              alt="Inbox Icon"
+              @click="closeSideDrawer(selectedEmailIndex)"
+            />
+            <span>Close (Esc)</span>
           </div>
-          <div class="action-items">
-            <img src="/icon-archive.png" alt="Inbox Icon" />
-            <span> Archive (a)</span>
+          <div class="action-items-right">
+            <div class="action-items">
+              <img src="/icon-inbox.png" alt="Inbox Icon" />
+              <span> Mark as read (r)</span>
+            </div>
+            <div class="action-items">
+              <img src="/icon-archive.png" alt="Inbox Icon" />
+              <span> Archive (a)</span>
+            </div>
           </div>
         </div>
-      </div>
-      <div v-if="selectedEmailIndex !== -1">
-        <h1>{{ emails[selectedEmailIndex].subject }}</h1>
-        <p class="email-content">{{ emails[selectedEmailIndex].content }}</p>
+        <div v-if="selectedEmailIndex !== -1">
+          <h1>{{ emails[selectedEmailIndex].subject }}</h1>
+          <p class="email-content">{{ emails[selectedEmailIndex].content }}</p>
+        </div>
       </div>
     </div>
   </div>
@@ -138,5 +142,19 @@ img {
   width: 24px;
   height: 24px;
   margin-right: 5px;
+}
+.overlay {
+  z-index: 1;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: none;
+}
+
+.overlay.active {
+  display: block;
 }
 </style>
