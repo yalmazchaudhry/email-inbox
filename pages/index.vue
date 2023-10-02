@@ -159,6 +159,15 @@ onUnmounted(() => {
   </div>
 </template>
 <style lang="scss" scoped>
+h1{
+  font-size: 32px !important;
+  font-weight: 500;
+  line-height: 41px;
+  letter-spacing: 0em;
+  text-align: left;
+
+}
+
 .actions {
   width: 30%;
   display: flex;
@@ -196,14 +205,16 @@ li {
   list-style: none;
 }
 .mail-list li:nth-child(even) {
-  background-color: #eee;
+  background: linear-gradient(0deg, #E5E7EB, #E5E7EB),
+  linear-gradient(0deg, #F3F6FB, #F3F6FB);
+
 }
 
 .mail-list li:nth-child(odd) {
   background-color: unset;
 }
 li:hover {
-  background-color: rgba(168, 199, 250, 0.5) !important;
+  background: rgba(168, 199, 250, 0.5) !important;
 }
 .inbox-page {
   padding-top: 2%;
@@ -233,10 +244,14 @@ button[disabled]:hover {
 }
 
 .email-item {
+  height: 60px;
+  padding: 0px 24px 0px 24px;
+  border: 1px solid #E5E7EB;
+  gap: 50px;
+
+
   display: flex;
   align-items: center;
-  padding: 15px;
-  border: 1px solid #eee;
   transition: opacity 0.3s;
 
   &.read {
@@ -248,13 +263,17 @@ button[disabled]:hover {
 }
 
 .email-content {
+  font-size: 14px;
   font-weight: 500;
+  line-height: 18px;
+  letter-spacing: 0em;
+  text-align: left;
   cursor: pointer;
   margin-left: 3%;
 }
 input[type="checkbox"] {
-  height: 15px;
-  width: 15px;
+  height: 20px;
+  width: 20px;
 }
 img {
   width: 24px;

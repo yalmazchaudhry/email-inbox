@@ -94,6 +94,30 @@ onUnmounted(() => {
 </template>
 
 <style lang="scss" scoped>
+.action-items span{
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 18px;
+  letter-spacing: 0em;
+  text-align: left;
+
+}
+h1{
+  font-size: 20px;
+  font-weight: 500;
+  line-height: 26px;
+  letter-spacing: 0em;
+  text-align: left;
+  color: #121829;
+}
+p{
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 18px;
+  letter-spacing: 0em;
+  text-align: left;
+ color: #4B5563;
+}
 .email-content {
   margin-top: 2%;
 }
@@ -120,12 +144,18 @@ onUnmounted(() => {
 }
 
 .side-drawer {
+  width: 752px;
+  height: 791px;
+  right: -528px;
+  padding: 32px;
+  border: 1px;
+  gap: 32px;
   z-index: 1;
   position: fixed;
   top: 0;
-  right: -900px;
-  width: 900px;
-  height: 100%;
+  //right: -900px;
+  //width: 900px;
+  //height: 100%;
   background-color: white;
   overflow-y: auto;
   transition: right 0.3s ease-in-out;
@@ -136,7 +166,7 @@ onUnmounted(() => {
 }
 
 .drawer-content {
-  padding: 20px;
+  //padding: 20px;
 }
 img {
   width: 24px;
